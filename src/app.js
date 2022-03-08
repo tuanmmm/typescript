@@ -12,4 +12,4 @@ var objectArr = [{ id: 1 }, { id: 2 }];
 function sum(numA, numB) {
     return numA + numB;
 }
-sum(a,b);
+sum(a, b);
