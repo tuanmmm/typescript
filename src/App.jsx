@@ -1,10 +1,8 @@
 import { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
 import ShowInfo from './components/Showinfo'
 function App() {
   const [count,setCount] = useState(0);
-  const [status,setStatus] = useState(false)
   const [products, setProducts] = useState([
          {id: 1, name: "Product A"},
          {id: 2, name: "Product B"},
