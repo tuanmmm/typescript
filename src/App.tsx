@@ -6,7 +6,7 @@ import "./dashboard.css";
 
 import ShowInfo from './components/ShowInfo'
 import Product from './components/Product'
-import { list, remove } from './api/product';
+import { list, remove , add } from './api/product';
 import axios from 'axios';
 import type { IProduct } from './types/product';
 import AdminLayout from './pages/layouts/AdminLayout';
@@ -14,6 +14,7 @@ import WebsiteLayout from './pages/layouts/WebsiteLayout';
 import Dashboard from './pages/Dashboard';
 import ProductManager from './pages/layouts/ProductManager';
 import Home from './pages/Home';
+import ProductAdd from './pages/ProductAdd';
 
 
 function App() {
@@ -32,14 +33,14 @@ function App() {
       remove(id);
 
       // reRender
-      setProducts(products.filter(item => item._id !== id));
+      setProducts(products.filter(item => item.id !== id));
+  }
+  const onHandleAdd = async (product: IProduct) => {
+    const { data } = await add(product);
+    setProducts([...products, data]);
   }
   return (
     <div className="App">
-
-      {products.map(item => {
-        return  <div>{item.name} <button onClick={() => removeItem(item._id)}>Remove</button></div>
-      })}
 
 
         <header>
@@ -67,7 +68,10 @@ function App() {
             <Route path="admin" element={<AdminLayout />}>
                 <Route index element={<Navigate to="dashboard"/>} />
                 <Route path="dashboard" element={<Dashboard />} />
-                <Route path="products" element={<ProductManager />} />
+               <Route path="products">
+                     <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
+                    <Route path="add" element={<ProductAdd name="tuấn nè" onAdd={onHandleAdd}/>} />
+                </Route>
             </Route>
           </Routes>
         </main>
