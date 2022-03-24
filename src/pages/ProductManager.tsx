@@ -1,5 +1,5 @@
 import React from 'react'
-import { IProduct } from '../../types/product'
+import { IProduct } from '../types/product'
 type Props = {}
 type ProductManagerProps = {
   products: IProduct[];

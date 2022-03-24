@@ -14,7 +14,7 @@ const ProductAdd = (props: ProductAddProps) => {
     const { register, handleSubmit, formState: { errors }} = useForm<TypeInputs>();
 
     const onSubmit: SubmitHandler<TypeInputs> = data => {
-        props.onAdd(data); 
+        props.onAdd(data);
     }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

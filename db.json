@@ -1,3 +1,14 @@
 {
-  "products": []
-} 
+  "products": [
+    {
+      "name": "Trà sữa socola",
+      "price": "666666",
+      "id": 1
+    },
+    {
+      "name": "Trà sữa socola",
+      "price": "666666",
+      "id": 2
+    }
+  ]
+}

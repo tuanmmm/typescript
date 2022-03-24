@@ -12,10 +12,10 @@ import type { IProduct } from './types/product';
 import AdminLayout from './pages/layouts/AdminLayout';
 import WebsiteLayout from './pages/layouts/WebsiteLayout';
 import Dashboard from './pages/Dashboard';
-import ProductManager from './pages/layouts/ProductManager';
+import ProductManager from './pages/ProductManager';
 import Home from './pages/Home';
 import ProductAdd from './pages/ProductAdd';
-
+import ProductEdit from './pages/ProductEdit';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -70,7 +70,8 @@ function App() {
                 <Route path="dashboard" element={<Dashboard />} />
                <Route path="products">
                      <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
-                    <Route path="add" element={<ProductAdd name="tuấn nè" onAdd={onHandleAdd}/>} />
+                    <Route path="add" element={<ProductAdd name="" onAdd={onHandleAdd}/>} />
+                    <Route path=":id/edit" element={<ProductEdit />} />
                 </Route>
             </Route>
           </Routes>
