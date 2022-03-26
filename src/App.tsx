@@ -6,7 +6,7 @@ import "./dashboard.css";
 
 import ShowInfo from './components/ShowInfo'
 import Product from './components/Product'
-import { list, remove , add } from './api/product';
+import { list, remove , add ,update } from './api/product';
 import axios from 'axios';
 import type { IProduct } from './types/product';
 import AdminLayout from './pages/layouts/AdminLayout';
@@ -38,6 +38,10 @@ function App() {
   const onHandleAdd = async (product: IProduct) => {
     const { data } = await add(product);
     setProducts([...products, data]);
+  }
+  const onHandleUpdate = async (product: IProduct) => {
+    const { data } = await update(product);
+    setProducts(products.map(item => item.id == data.id ? data : item));
   }
   return (
     <div className="App">
@@ -71,7 +75,7 @@ function App() {
                <Route path="products">
                      <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
                     <Route path="add" element={<ProductAdd name="" onAdd={onHandleAdd}/>} />
-                    <Route path=":id/edit" element={<ProductEdit />} />
+                    <Route path=":id/edit" element={<ProductEdit   onUpdate={onHandleUpdate}/>} />
                 </Route>
             </Route>
           </Routes>
