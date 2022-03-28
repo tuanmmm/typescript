@@ -6,7 +6,7 @@ type TypeInputs = {
     price: number
 }
 type ProductAddProps = {
-    name: string,
+    
     onAdd: (product: TypeInputs) => void
 };
 
@@ -18,7 +18,7 @@ const ProductAdd = (props: ProductAddProps) => {
     }
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-        {props.name}
+        
         <input type="text" placeholder='Ten san pham' {...register('name')} />
         <input type="number" placeholder='Gia san pham' {...register('price')} />
         <button>Add</button>

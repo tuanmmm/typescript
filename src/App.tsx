@@ -16,6 +16,7 @@ import ProductManager from './pages/ProductManager';
 import Home from './pages/Home';
 import ProductAdd from './pages/ProductAdd';
 import ProductEdit from './pages/ProductEdit';
+import Signup from './pages/signup';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -74,10 +75,13 @@ function App() {
                 <Route path="dashboard" element={<Dashboard />} />
                <Route path="products">
                      <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
-                    <Route path="add" element={<ProductAdd name="" onAdd={onHandleAdd}/>} />
+                    <Route path="add" element={<ProductAdd  onAdd={onHandleAdd}/>} />
                     <Route path=":id/edit" element={<ProductEdit   onUpdate={onHandleUpdate}/>} />
                 </Route>
             </Route>
+            <Route path="Signup" element={<Signup />} />
+
+           
           </Routes>
         </main>
     </div>
