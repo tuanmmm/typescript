@@ -46,28 +46,11 @@ function App() {
   }
   return (
     <div className="App">
-
-
-        <header>
-          <ul>
-            <li>
-              <NavLink to="/">Home Page</NavLink>
-            </li>
-            <li>
-              <NavLink to="/product">Product Page</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">About</NavLink>
-            </li>
-          </ul>
-        </header>
         <main>
           
           <Routes>
-            <Route path="/" element={<WebsiteLayout />}>
-              <Route index element={<Home />} />
-              <Route path="product" element={<h1>Hien thi san pham</h1>} />
-              <Route path="about" element={<h1>About page</h1>} />
+            <Route path="/" element={<WebsiteLayout />}>           
+           <Route index element={<Home />} />        
             </Route>
             
             <Route path="admin" element={<AdminLayout />}>
