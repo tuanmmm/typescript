@@ -7,31 +7,42 @@ type ProductManagerProps = {
   onRemove: (id: number) => void
 }
 const ProductManager = (props: ProductManagerProps) => {
+  console.log(props);
+  
   return (
-
+    
     <div>
-      <table>
-        <thead>
-          <th>#</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th></th>
-        </thead>
-        <tbody>
-          {props.products.map((item, index) => {
-            return <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{item.name}</td>
-              <td>{item.price}</td>
-              <td>
-              <button onClick={() => props.onRemove(item.id)}>Remove</button>
-              <button><Link to={`/admin/products/${item.id}/edit`}>Edit</Link></button>
-              </td>
+      <button><Link to={`/admin/products/add`}>add</Link></button>
+     <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">stt</th>
+                  <th scope="col">name</th>
+                  <th scope="col">price</th>
+                  <th scope="col"><i className="fa-solid fa-trash" /></th>
+                  <th scope="col"><i className="fa-solid fa-eye-dropper" /></th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                 {props.products.map((item, index) => {
+                  return <tr key={index}>
+                    <td>{index + 1}</td>
+                    <td>{item.name}</td>
+                    <td>{item.price}</td>
+                    <td><button onClick={() => props.onRemove(item?._id)}>Remove</button></td>
+                    <td>
+                    <button><Link to={`/admin/products/${item?._id}/edit`}>Edit</Link></button>
+                    </td>
             </tr>
+            
           })}
-        </tbody>
+              </tbody>
       </table>
+
+
     </div>
+    
   )
 }
 

@@ -1,15 +1,6 @@
 {
   "products": [
-    {
-      "name": "Trà sữa socola",
-      "price": "666666",
-      "id": 2
-    },
-    {
-      "name": "mát tra",
-      "price": "666666",
-      "id": 3
-    }
+   
   ]
   ,
   "users":[

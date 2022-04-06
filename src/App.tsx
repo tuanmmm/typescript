@@ -26,6 +26,8 @@ function App() {
     const getProducts = async () => {
         const { data } = await list();
         setProducts(data);
+        console.log(data);
+        
     };
     getProducts();
   }, [])
@@ -38,33 +40,32 @@ function App() {
   }
   const onHandleAdd = async (product: IProduct) => {
     const { data } = await add(product);
+    console.log(data);  
     setProducts([...products, data]);
   }
   const onHandleUpdate = async (product: IProduct) => {
     const { data } = await update(product);
     setProducts(products.map(item => item.id == data.id ? data : item));
   }
+  
   return (
     <div className="App">
         <main>
           
           <Routes>
-            <Route path="/" element={<WebsiteLayout />}>           
-           <Route index element={<Home />} />        
+            <Route path="/" element={<WebsiteLayout />}>                   
+                <Route index element={<Home products={products} />} />        
             </Route>
-            
             <Route path="admin" element={<AdminLayout />}>
                 <Route index element={<Navigate to="dashboard"/>} />
                 <Route path="dashboard" element={<Dashboard />} />
-               <Route path="products">
-                     <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
+                <Route path="products">
+                    <Route index element={<ProductManager products={products} onRemove={removeItem}/>} />
                     <Route path="add" element={<ProductAdd  onAdd={onHandleAdd}/>} />
                     <Route path=":id/edit" element={<ProductEdit   onUpdate={onHandleUpdate}/>} />
                 </Route>
             </Route>
-            <Route path="Signup" element={<Signup />} />
-
-           
+            <Route path="Signup" element={<Signup />} />        
           </Routes>
         </main>
     </div>
