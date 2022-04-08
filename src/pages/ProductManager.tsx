@@ -19,6 +19,7 @@ const ProductManager = (props: ProductManagerProps) => {
                   <th scope="col">stt</th>
                   <th scope="col">name</th>
                   <th scope="col">price</th>
+                  <th scope="col">image</th>
                   <th scope="col"><i className="fa-solid fa-trash" /></th>
                   <th scope="col"><i className="fa-solid fa-eye-dropper" /></th>
                   
@@ -30,6 +31,7 @@ const ProductManager = (props: ProductManagerProps) => {
                     <td>{index + 1}</td>
                     <td>{item.name}</td>
                     <td>{item.price}</td>
+                    <td><img src={item.image} alt="" /></td>
                     <td><button onClick={() => props.onRemove(item?._id)}>Remove</button></td>
                     <td>
                     <button><Link to={`/admin/products/${item?._id}/edit`}>Edit</Link></button>

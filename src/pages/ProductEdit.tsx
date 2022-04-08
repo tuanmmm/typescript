@@ -8,7 +8,8 @@ type UpdateProps = {
 }
 type FormInputs = {
     name : string,
-    price : number
+    price : number,
+    image:string
 }
 const ProductEdit = (props: UpdateProps) => {
     const {register ,handleSubmit ,formState: {errors} , reset} = useForm<FormInputs>();
@@ -35,6 +36,7 @@ const ProductEdit = (props: UpdateProps) => {
     <form action="" onSubmit={handleSubmit(onSubmit)}>
     <input type="text"  {...register('name', {required: true})}/>
     <input type="number"  {...register("price")} />
+    <input type="file"  {...register("image")} />
     <button>Update</button>
   </form>
   )

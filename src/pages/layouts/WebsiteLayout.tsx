@@ -8,7 +8,7 @@ const WebsiteLayout = (props: Props) => {
   return (
    <div className="relative ">
      
-  <header className="fixed  w-full pt-2 pb-2 bg-white ">
+  <header className="fixed  w-full pt-2 pb-2 bg-white z-10">
     <div className="bg-gray-500 text-black w-full h-[40px] flex justify-between ">
        <ul>
          <li className=" ml-[70px]  m-[10px]">

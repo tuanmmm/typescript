@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { IProduct } from '../types/product'
-import { useEffect, useState } from 'react'
+import {Link} from 'react-router-dom'
 
 type Props = {}
 type ProductManagerProps = {
@@ -9,28 +9,34 @@ type ProductManagerProps = {
 }
 
 const Home = (props: ProductManagerProps) => {
-   useEffect(() => {
-      $(document).ready(function () {
-         $("#lightSlider").lightSlider();
-      });
+   useEffect(()=>{
+      $(document).ready(function() {
+         $('#lightSlider').lightSlider({
+             slideMargin:0,
+             loop:true
+         });
+     });
    }, [])
+   console.log(props.products);
+   
    return (
       <div>
          <div className="h-[50px]  text-center pt-[20px] mb-[10px]"><h5>THỜI TRANG MỚI NHẤT</h5></div>
          <div className="w-[80%] grid grid-cols-4 gap-4 item-center mx-[auto] ">
 
-            {props.products?.map((item) => {
+            {props?.products?.map((item, index) => {
                return (
-                  <div className="">
-                     <div>
-                        <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  <div key={index} className="">
+                    <Link to={`/ProductDetail/${item?._id}`}><div>
+                        <img src={item.image} alt="" />
                      </div>
+                     </Link> 
                      <div className="h-[80px] mt-[10px]">
-                        <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                        <img src={item.image} className="w-[60px] item-center mx-[auto]" alt="" />
                      </div>
                      <div >
-                        <span >{item.name}</span> <br />
-                        <span>{item.price}</span>
+                        <span className="" >{item.name}</span> <br />
+                        <span className="text-red-600">{item.price}</span>
                      </div>
                   </div>
                )
@@ -55,8 +61,8 @@ const Home = (props: ProductManagerProps) => {
 
          </div>
          <div className="h-[50px]  text-center pt-[20px]"><h5>THỜI TRANG MỚI NHẤT</h5></div>
-         <div className="w-[80%] grid grid-cols-4 gap-4 item-center mx-[auto] ">
-            <div className="">
+         <ul id='lightSlider' className="w-[80%] grid grid-cols-4 gap-4 item-center mx-[auto] ">
+            <li className="">
                <div>
                   <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/ao-so-mi-in-hoa-tiet-asm083-mau-den-16613.JPG" alt="" />
                </div>
@@ -67,8 +73,8 @@ const Home = (props: ProductManagerProps) => {
                   <span >Aó sơ mi mới</span> <br />
                   <span>285.000</span>
                </div>
-            </div>
-            <div className="">
+            </li>
+            <li className="">
                <div>
                   <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
                </div>
@@ -79,8 +85,8 @@ const Home = (props: ProductManagerProps) => {
                   <span >Aó sơ mi mới</span> <br />
                   <span>285.000</span>
                </div>
-            </div>
-            <div className="">
+            </li>
+            <li className="">
                <div>
                   <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
                </div>
@@ -91,8 +97,8 @@ const Home = (props: ProductManagerProps) => {
                   <span >Aó sơ mi mới</span> <br />
                   <span>285.000</span>
                </div>
-            </div>
-            <div className="">
+            </li>
+            <li className="">
                <div>
                   <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
                </div>
@@ -103,17 +109,8 @@ const Home = (props: ProductManagerProps) => {
                   <span >Aó sơ mi mới</span> <br />
                   <span>285.000</span>
                </div>
-            </div>
-
-         </div>
-         <ul id="lightSlider" className="cs-hidden">
-            <li className="item-a">fdgfh</li>
-            <li className="item-b">sfgdfnh</li>
-            <li className="item-c">gd</li>
-            <li className="item-d">sfgd</li>
-            <li className="item-e">fsgfbgd</li>
+            </li>
          </ul>
-
       </div>
    )
 }
