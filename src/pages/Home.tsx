@@ -13,7 +13,8 @@ const Home = (props: ProductManagerProps) => {
       $(document).ready(function() {
          $('#lightSlider').lightSlider({
              slideMargin:0,
-             loop:true
+             loop:true,
+             item:4
          });
      });
    }, [])
@@ -60,57 +61,83 @@ const Home = (props: ProductManagerProps) => {
             </div>
 
          </div>
-         <div className="h-[50px]  text-center pt-[20px]"><h5>THỜI TRANG MỚI NHẤT</h5></div>
-         <ul id='lightSlider' className="w-[80%] grid grid-cols-4 gap-4 item-center mx-[auto] ">
-            <li className="">
-               <div>
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/ao-so-mi-in-hoa-tiet-asm083-mau-den-16613.JPG" alt="" />
-               </div>
-               <div className="h-[80px] mt-[10px]">
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
-               </div>
-               <div >
-                  <span >Aó sơ mi mới</span> <br />
-                  <span>285.000</span>
-               </div>
-            </li>
-            <li className="">
-               <div>
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
-               </div>
-               <div className="h-[80px] mt-[10px]">
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
-               </div>
-               <div >
-                  <span >Aó sơ mi mới</span> <br />
-                  <span>285.000</span>
-               </div>
-            </li>
-            <li className="">
-               <div>
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
-               </div>
-               <div className="h-[80px] mt-[10px]">
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
-               </div>
-               <div >
-                  <span >Aó sơ mi mới</span> <br />
-                  <span>285.000</span>
-               </div>
-            </li>
-            <li className="">
-               <div>
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
-               </div>
-               <div className="h-[80px] mt-[10px]">
-                  <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
-               </div>
-               <div >
-                  <span >Aó sơ mi mới</span> <br />
-                  <span>285.000</span>
-               </div>
-            </li>
-         </ul>
+         <div className="h-[50px]  text-center pt-[20px] mb-[10px]"><h5>THỜI TRANG BÁN CHẠY</h5></div>
+         <div className="w-[80%] mx-auto">
+            <ul id='lightSlider'>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/ao-so-mi-in-hoa-tiet-asm083-mau-den-16613.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+               <li className="">
+                  <div>
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" alt="" />
+                  </div>
+                  <div className="h-[80px] mt-[10px]">
+                     <img src="https://4menshop.com/cache/image/300x400/images/thumbs/2022/02/asm-in-hoa-tiet-lon-asm081-mau-trang-16599.JPG" className="w-[60px] item-center mx-[auto]" alt="" />
+                  </div>
+                  <div >
+                     <span >Aó sơ mi mới</span> <br />
+                     <span>285.000</span>
+                  </div>
+               </li>
+            </ul>
+         </div>
       </div>
    )
 }
