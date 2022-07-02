@@ -1,23 +1,25 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { signup } from '../api/user';
+import { signin, signup } from '../api/user';
+import { authenticated } from '../utils/localStorage';
+
 type TypeInputs = {
-  name: string,
-  email: string,
-  password: string
+    email: string,
+    password: string
 }
+const Signin = () => {
+    const { register, handleSubmit, formState: { errors }} = useForm<TypeInputs>();
+    const navigate = useNavigate();
 
-const Signup = () => {
-      const { register, handleSubmit, formState: { errors }} = useForm<TypeInputs>();
-      const navigate = useNavigate();
-
-      const onSubmit: SubmitHandler<TypeInputs> = data => {
-        console.log(data);
-        
-          signup(data);
-          navigate("/signin");
-  }
-  return (   
+    const onSubmit: SubmitHandler<TypeInputs> = async data => {
+        const {data : user} = await signin(data);
+        console.log(user);
+        // localstorage
+        authenticated(user, () => {
+            navigate('/');
+        })
+    }
+  return (
     <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-md w-full space-y-8">
         <div>
@@ -30,10 +32,6 @@ const Signup = () => {
         <form className="mt-8 space-y-6" onSubmit={handleSubmit(onSubmit)}>
           <input type="hidden" name="remember" defaultValue="true" />
           <div className="rounded-md shadow-sm -space-y-px">
-          <div>
-              <label  className="sr-only">name</label>
-              <input   {...register('name')}  className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
-            </div>
             <div>
               <label htmlFor="email-address" className="sr-only">Email address</label>
               <input id="email-address"  {...register('email')} type="email" className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Email address" />
@@ -70,4 +68,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signin

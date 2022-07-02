@@ -18,6 +18,8 @@ import ProductAdd from './pages/ProductAdd';
 import ProductEdit from './pages/ProductEdit';
 import Signup from './pages/signup';
 import ProductDetail from './pages/ProductDetail';
+import Signin from './pages/signin';
+import PrivateRouter from './components/PrivateRouter';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -61,7 +63,7 @@ function App() {
               <Route path=':id' element={<ProductDetail />}/>
             </Route>
           </Route>
-          <Route path="admin" element={<AdminLayout />}>
+          <Route path="admin" element={<PrivateRouter><AdminLayout /></PrivateRouter>}>
             <Route index element={<Navigate to="dashboard" />} />
             <Route path="dashboard" element={<Dashboard />} />
             <Route path="products">
@@ -71,6 +73,7 @@ function App() {
             </Route>
           </Route>
           <Route path="Signup" element={<Signup />} />
+          <Route path="/signin" element={<Signin />}/>
         </Routes>
       </main>
     </div>

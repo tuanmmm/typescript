@@ -35,12 +35,23 @@ const ProductAdd = (props: ProductAddProps) => {
 
     }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-        
-        <input type="text" placeholder='Ten san pham' {...register('name')} />
-        <input type="number" placeholder='Gia san pham' {...register('price')} />
-        <input type="file" placeholder='Ten san pham' {...register('image')} />
-        <button>Add</button>
+          <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+              <div className="mb-3">
+                  <label  className="form-label">Tên sản phẩm</label>
+                  <input type="text" className="form-control"  placeholder='Ten san pham' {...register('name')} />
+              </div>
+              <div className="mb-3">
+                  <label className="form-label">Gía sản phẩm</label>
+                  <input type="number" className="form-control" placeholder='Gia san pham' {...register('price')}  />
+              </div>
+              <div className="mb-3">
+                  <label className="form-label">image</label>
+                  <input type="file" className="form-control" {...register('image')} />
+              </div>
+              
+              <button type="submit" className="btn btn-primary">Submit</button>
+          </div>
     </form>
   )
 }

@@ -1,6 +1,10 @@
 import instance from "./instance";
 import {IUser} from "../types/user"
-export const add = (product: IUser) => {
+export const signup = (user: IUser) => {
     const url = "/signup";
-    return instance.post(url, product);
+    return instance.post(url, user);
 } 
+export const signin = (user: IUser) => {
+    const url = `/signin`;
+    return instance.post(url, user);
+}

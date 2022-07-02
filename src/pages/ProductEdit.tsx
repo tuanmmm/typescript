@@ -33,12 +33,25 @@ const ProductEdit = (props: UpdateProps) => {
         // redirect sang trang product
     } 
   return (
-    <form action="" onSubmit={handleSubmit(onSubmit)}>
-    <input type="text"  {...register('name', {required: true})}/>
-    <input type="number"  {...register("price")} />
-    <input type="file"  {...register("image")} />
-    <button>Update</button>
-  </form>
+    <form onSubmit={handleSubmit(onSubmit)}>
+          <div>
+              <div className="mb-3">
+                  <label  className="form-label">Tên sản phẩm</label>
+                  <input type="text" className="form-control"  placeholder='Ten san pham' {...register('name', {required: true})} />
+              </div>
+              <div className="mb-3">
+                  <label className="form-label">Gía sản phẩm</label>
+                  <input type="number" className="form-control" placeholder='Gia san pham'{...register("price")} />
+              </div>
+              <div className="mb-3">
+                  <label className="form-label">image</label>
+                  <input type="file" className="form-control" {...register("image")} />
+              </div>
+              
+              <button type="submit" className="btn btn-primary">Update</button>
+          </div>
+    </form>
+
   )
 }
 
